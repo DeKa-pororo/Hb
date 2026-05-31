@@ -11,6 +11,7 @@ const playerProgressThumb = document.querySelector(".player-progress-thumb");
 const playerToggleBtn = document.querySelector(".player-toggle");
 const playerReplayBtn = document.querySelector(".player-replay");
 const recipientNameEl = document.getElementById("recipientName");
+const greetingNameEl = document.getElementById("greetingName");
 
 let hasOpened = false;
 let dragging = false;
@@ -31,18 +32,28 @@ const MAX_PULL = 120;
 const OPEN_THRESHOLD = 70;
 
 function applyRecipientName() {
-  if (!recipientNameEl) return;
-
   const params = new URLSearchParams(window.location.search);
   const rawName = params.get("to") || params.get("name") || "";
   const name = rawName.trim().replace(/\s+/g, " ");
 
   if (name) {
-    recipientNameEl.textContent = name;
-    return;
+    if (recipientNameEl) {
+      recipientNameEl.textContent = name;
+    }
+    if (greetingNameEl) {
+      greetingNameEl.textContent = name;
+    }
+    return name;
   }
 
-  recipientNameEl.textContent = ".............";
+  if (recipientNameEl) {
+    recipientNameEl.textContent = ".............";
+  }
+  if (greetingNameEl) {
+    greetingNameEl.textContent = "";
+  }
+
+  return "";
 }
 
 applyRecipientName();
