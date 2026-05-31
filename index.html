@@ -63,15 +63,12 @@
                 <g filter="url(#envShadow)">
                   <rect x="20" y="22" width="760" height="556" rx="32" fill="url(#airmailStripes)" />
                   <rect x="34" y="36" width="732" height="528" rx="28" fill="url(#envBase)" />
-                  <path d="M34 184 L400 78 L766 184 V530 L738 558 H62 L34 530 Z" fill="url(#frontPocket)" opacity="0.98" />
-                  <path class="envelope-body-shadow" d="M34 530 L400 310 L766 530 L738 558 H62 Z" fill="url(#frontShadow)" opacity="0" />
-                  <path class="envelope-body-left-fold" d="M34 184 L400 310 L400 530 L34 530 Z" fill="rgba(238, 225, 208, 0.84)" opacity="0" />
-                  <path class="envelope-body-right-fold" d="M766 184 L400 310 L400 530 L766 530 Z" fill="rgba(228, 219, 207, 0.88)" opacity="0" />
-                  <path class="envelope-body-crease" d="M400 310 L400 530" fill="none" stroke="rgba(49, 47, 88, 0.16)" stroke-width="1.2" opacity="0" />
-                  <path d="M34 184 L400 310 L766 184" fill="none" stroke="rgba(49, 47, 88, 0.18)" stroke-width="2" stroke-linejoin="round" />
-                  <path d="M34 530 L400 310 L766 530" fill="none" stroke="rgba(49, 47, 88, 0.12)" stroke-width="1.8" stroke-linejoin="round" />
-                  <path d="M400 310 L400 530" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.1" opacity="0.65" />
-                  <path d="M64 86 H736" stroke="rgba(255,255,255,0.48)" stroke-width="1.2" opacity="0.55" />
+                  <path class="envelope-body-shadow" d="M34 426 L400 266 L766 426 L738 558 H62 Z" fill="url(#frontShadow)" opacity="0" />
+                  <path class="envelope-body-left-fold" d="M34 206 L400 266 L34 326 Z" fill="rgba(238, 225, 208, 0.84)" opacity="0" />
+                  <path class="envelope-body-right-fold" d="M766 206 L400 266 L766 326 Z" fill="rgba(228, 219, 207, 0.88)" opacity="0" />
+                  <path class="envelope-body-crease" d="M400 266 L400 326" fill="none" stroke="rgba(49, 47, 88, 0.16)" stroke-width="1.2" opacity="0" />
+                  <path d="M34 166 L400 266 L766 166" fill="none" stroke="rgba(49, 47, 88, 0.15)" stroke-width="1.9" stroke-linejoin="round" />
+                  <path d="M34 426 L400 266 L766 426" fill="none" stroke="rgba(49, 47, 88, 0.15)" stroke-width="1.9" stroke-linejoin="round" />
                 </g>
 
               </svg>
@@ -182,7 +179,7 @@
 
               <div class="envelope-back-copy" aria-hidden="true">
                 <p><strong>Хэнээс:</strong> О. Гандагина</p>
-                <p><strong>Хэнд:</strong> .............</p>
+                <p><strong>Хэнд:</strong> <span id="recipientName">.............</span></p>
                 <p><strong>Хэзээ:</strong> 2026-06-02</p>
                 <p><strong>Хаана:</strong> .............</p>
                 <span class="backline backline-1"></span>
@@ -217,15 +214,7 @@
                   class="seal-shape"
                 />
                 <circle cx="100" cy="100" r="60" fill="url(#sealSheen)" />
-                <path
-                  d="M 74 110 C 74 98, 84 88, 97 88 C 107 88, 112 93, 118 100 C 124 107, 128 112, 136 112 C 141 112, 145 110, 148 107"
-                  fill="none"
-                  stroke="#ffd9c8"
-                  stroke-width="6"
-                  stroke-linecap="round"
-                  opacity="0.42"
-                />
-                <text x="100" y="112" text-anchor="middle" font-family="Georgia, serif" font-size="58" font-style="italic" fill="#ffe5d9" opacity="0.85">m</text>
+                <text x="100" y="116" text-anchor="middle" font-family="Georgia, serif" font-size="58" font-style="italic" fill="#ffe5d9" opacity="0.9">G</text>
               </svg>
             </button>
           </div>

@@ -807,7 +807,7 @@ body {
 .card-shell.is-opening .envelope-body-left-fold,
 .card-shell.is-opening .envelope-body-right-fold {
   opacity: 0.2;
-  transform: translateY(2px);
+  transform: translateY(2px) scaleY(1.03);
 }
 
 .card-shell.is-opening .envelope-body-crease {
@@ -837,12 +837,12 @@ body {
 
 .card-shell.is-open .envelope-body-left-fold {
   opacity: 0.82;
-  transform: translate(-3px, 6px) scaleY(1.01);
+  transform: translate(-3px, 6px) scaleY(1.03);
 }
 
 .card-shell.is-open .envelope-body-right-fold {
   opacity: 0.82;
-  transform: translate(3px, 6px) scaleY(1.01);
+  transform: translate(3px, 6px) scaleY(1.03);
 }
 
 .card-shell.is-open .envelope-body-crease {
