@@ -2,6 +2,7 @@ const cardShell = document.getElementById("cardShell");
 const openBtn = document.getElementById("openBtn");
 const sealBtn = document.getElementById("sealBtn");
 const paper = document.querySelector(".paper");
+const paperCloseBtn = document.querySelector(".paper-close");
 const envelope = document.querySelector(".envelope");
 const musicNote = document.getElementById("musicNote");
 const playerElapsed = document.querySelector(".player-elapsed");
@@ -418,6 +419,58 @@ function pullPaperOut() {
   cardShell.classList.add("is-paper-out");
 }
 
+function closePaper() {
+  if (!hasOpened && !cardShell.classList.contains("is-open")) return;
+
+  if (peelTimer) {
+    clearTimeout(peelTimer);
+    peelTimer = null;
+  }
+  if (openRevealTimer) {
+    clearTimeout(openRevealTimer);
+    openRevealTimer = null;
+  }
+  if (openSettleTimer) {
+    clearTimeout(openSettleTimer);
+    openSettleTimer = null;
+  }
+  if (songAudio) {
+    songAudio.pause();
+    try {
+      songAudio.currentTime = 0;
+    } catch (error) {
+      // Ignore seeks that happen before metadata is ready.
+    }
+  }
+
+  hasOpened = false;
+  dragging = false;
+  isPeeling = false;
+  envelopePhase = "back";
+  paperOut = false;
+
+  cardShell.classList.remove("is-dragging");
+  cardShell.classList.remove("is-peeling");
+  cardShell.classList.remove("is-paper-out");
+  cardShell.classList.remove("is-open");
+  cardShell.classList.remove("is-opening");
+  cardShell.classList.remove("is-playing");
+  cardShell.classList.remove("is-flipped");
+  resetPull();
+  hideSeal();
+  if (musicNote) musicNote.hidden = true;
+  stopPlaybackUI();
+  syncPlayerButtons(true);
+}
+
+function handlePaperClose(event) {
+  event.stopPropagation();
+  if (event.type === "pointerdown") {
+    event.preventDefault();
+  }
+  closePaper();
+}
+
 sealBtn.addEventListener("pointerdown", beginDrag);
 sealBtn.addEventListener("pointermove", moveDrag);
 sealBtn.addEventListener("pointerup", endDrag);
@@ -437,6 +490,11 @@ if (openBtn) {
 
 if (paper) {
   paper.addEventListener("click", pullPaperOut);
+}
+
+if (paperCloseBtn) {
+  paperCloseBtn.addEventListener("pointerdown", handlePaperClose);
+  paperCloseBtn.addEventListener("click", handlePaperClose);
 }
 
 if (playerToggleBtn) {
